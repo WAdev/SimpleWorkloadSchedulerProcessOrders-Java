@@ -1,0 +1,20 @@
+declared-services:
+ cloudant-nosql-db:
+  label: cloudantNoSQLDB
+  plan: Shared
+ workload-scheduler:
+  label: WorkloadScheduler
+  plan: Standard
+ sendgrid-email:
+  label: sendgrid
+  plan: free
+applications:
+- services:
+  - cloudant-nosql-db
+  - workload-scheduler
+  - sendgrid-email
+  path: SimpleWorkloadSchedulerProcessOrders-Java.war
+  instances: 1
+  domain: mybluemix.net
+  memory: 512M
+  disk_quota: 1024M
